@@ -7,9 +7,9 @@
 
 class TodayWeatherModel {
     
-    func location() {
+    func getWeather(completion: @escaping (Result<WeatherData, Error>) -> ()) {
         LocationManager.shared.getCurrentCoordinate { coordinate in
-            
+            WeatherAPI.shared.requestWeather(for: coordinate, completion: completion) 
         }
     }
     

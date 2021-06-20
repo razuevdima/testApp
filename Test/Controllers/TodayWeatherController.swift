@@ -35,6 +35,11 @@ class TodayWeatherController: UIViewController {
             contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        model.getWeather { result in
+            print(result)
+        }
+        
     }
     
 }
