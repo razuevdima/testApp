@@ -12,6 +12,7 @@ class TodayWeatherController: UIViewController {
     private let model = TodayWeatherModel()
     
     private let weatherSummaryView = WeatherSummaryView(frame: .zero)
+    private let weatherDetailsView = WeatherDetailsView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +20,23 @@ class TodayWeatherController: UIViewController {
     }
     
     private func setupController() {
+        title = "Today"
         view.backgroundColor = .systemBackground
+                
+        let shareButton = UIButton()
+        shareButton.setTitle("Share", for: .normal)
+        shareButton.setTitleColor(.orange, for: .normal)
+        shareButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
-        let contentStackView = UIStackView(arrangedSubviews: [weatherSummaryView])
+        NSLayoutConstraint.activate([
+            shareButton.heightAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        let contentStackView = UIStackView(arrangedSubviews: [weatherSummaryView, getSeparatorView(), weatherDetailsView, getSeparatorView(), shareButton])
         contentStackView.axis = .vertical
-        contentStackView.spacing = 0
+        contentStackView.spacing = 15
         contentStackView.distribution = .fill
+        contentStackView.alignment = .center
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(contentStackView)
@@ -33,13 +45,38 @@ class TodayWeatherController: UIViewController {
             contentStackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             contentStackView.rightAnchor.constraint(equalTo: view.rightAnchor),
             contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            contentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            weatherDetailsView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)
         ])
         
         model.getWeather { result in
-            print(result)
+            switch result {
+            case .success(let weatherData):
+                self.weatherDetailsView.setup(weatherData: weatherData)
+                self.weatherSummaryView.setup(weatherData: weatherData)
+                print(weatherData)
+            case .failure(let error):
+                print(error)
+            }
         }
         
+    }
+    
+    private func getSeparatorView() -> UIView {
+        let separatorView = UIView()
+        separatorView.backgroundColor = .systemGray
+        
+        NSLayoutConstraint.activate([
+            separatorView.widthAnchor.constraint(equalToConstant: 100),
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        return separatorView
+    }
+    
+    @objc private func didButtonClick() {
+        guard let shareWeather = model.shareWeather else { return }
+        let activityController = UIActivityViewController(activityItems: [shareWeather], applicationActivities: nil)
+        present(activityController, animated: true)
     }
     
 }

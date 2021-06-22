@@ -60,6 +60,7 @@ extension LocationManager: CLLocationManagerDelegate {
         for completion in completions {
             completion(lastCoordinate)
         }
+        completions.removeAll()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

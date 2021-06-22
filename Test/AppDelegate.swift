@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         forecastWeatherNavigationController.tabBarItem = forecastWeatherTabBarItem
         
         let tabBarViewController = UITabBarController()
-        tabBarViewController.setViewControllers([todayWeatherController, forecastWeatherController], animated: false)
+        tabBarViewController.setViewControllers([todayWeatherNavigationController, forecastWeatherNavigationController], animated: false)
         tabBarViewController.modalPresentationStyle = .fullScreen
         
         window?.rootViewController = tabBarViewController

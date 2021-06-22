@@ -18,7 +18,7 @@ class WeatherAPI {
     }
     
     func requestWeather(for coordinate: LocationManager.Coordinate, completion: @escaping (Result<WeatherData, Error>) -> ()) {
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)&appid=ba3f53e5ea26b71f8da0e4c29054f91e&lang=ru&units=metric") else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)&appid=ba3f53e5ea26b71f8da0e4c29054f91e&lang=en&units=metric") else { return }
         
         let task = session.dataTask(with: url) { (data, response, error) in
             if let data = data {

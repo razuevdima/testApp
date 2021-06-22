@@ -24,13 +24,27 @@ class WeatherSummaryView: UIView {
     }
     
     private func setupView() {
+        imageView.contentMode = .scaleAspectFit
+        
+        locationLabel.text = "-"
+
+        weatherLabel.font = .systemFont(ofSize: 29)
+        weatherLabel.textColor = .systemTeal
+        weatherLabel.text = "-"
+        
         let contentStackView = UIStackView(arrangedSubviews: [imageView, locationLabel, weatherLabel])
         contentStackView.axis = .vertical
-        contentStackView.spacing = 4
+        contentStackView.spacing = 10
         contentStackView.distribution = .fill
+        contentStackView.alignment = .center
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(contentStackView)
+        
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.heightAnchor.constraint(equalToConstant: 150)
+        ])
         
         NSLayoutConstraint.activate([
             contentStackView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -39,5 +53,10 @@ class WeatherSummaryView: UIView {
         ])
     }
     
+    func setup(weatherData: WeatherData) {
+        imageView.image = UIImage(named: weatherData.weather.first?.icon ?? "")
+        locationLabel.text = weatherData.name + ", " + weatherData.sys.country
+        weatherLabel.text = String(Int(round(weatherData.main.temp))) + "°C | " + (weatherData.weather.first?.description ?? "")
+    }
+    
 }
-
