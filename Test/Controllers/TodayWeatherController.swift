@@ -29,7 +29,7 @@ class TodayWeatherController: UIViewController {
         shareButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            shareButton.heightAnchor.constraint(equalToConstant: 150)
+            shareButton.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         let contentStackView = UIStackView(arrangedSubviews: [weatherSummaryView, getSeparatorView(), weatherDetailsView, getSeparatorView(), shareButton])
@@ -64,10 +64,10 @@ class TodayWeatherController: UIViewController {
     
     private func getSeparatorView() -> UIView {
         let separatorView = UIView()
-        separatorView.backgroundColor = .systemGray
+        separatorView.backgroundColor = UIColor.gray
         
         NSLayoutConstraint.activate([
-            separatorView.widthAnchor.constraint(equalToConstant: 100),
+            separatorView.widthAnchor.constraint(equalToConstant: 200),
             separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
         return separatorView

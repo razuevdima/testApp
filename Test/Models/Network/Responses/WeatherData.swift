@@ -20,7 +20,6 @@ struct WeatherData: Codable {
         let pressure: Int
         let minTemp: Double
         let maxTemp: Double
-        let feels: Double
         
         enum CodingKeys: String, CodingKey {
             case minTemp = "temp_min"
@@ -28,7 +27,6 @@ struct WeatherData: Codable {
             case humidity
             case temp
             case pressure
-            case feels = "feels_like"
         }
     }
     

@@ -18,8 +18,10 @@
 		C0598096267FAF8800B55C7C /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0598095267FAF8800B55C7C /* WeatherAPI.swift */; };
 		C059809A267FB2D500B55C7C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0598099267FB2D500B55C7C /* WeatherData.swift */; };
 		C059809C2680F56B00B55C7C /* WeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059809B2680F56B00B55C7C /* WeatherDetailsView.swift */; };
-		C05980A5268103AD00B55C7C /* WeatherDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05980A4268103AD00B55C7C /* WeatherDetailsData.swift */; };
 		C05980A726825F6E00B55C7C /* WeatherParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05980A626825F6E00B55C7C /* WeatherParameterView.swift */; };
+		C0911D6726838C7300DF4B0C /* ForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0911D6626838C7300DF4B0C /* ForecastData.swift */; };
+		C0911D692683941F00DF4B0C /* ForecastWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0911D682683941F00DF4B0C /* ForecastWeatherModel.swift */; };
+		C0B2CDFD268666930013B788 /* ForecastWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B2CDFC268666930013B788 /* ForecastWeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +38,10 @@
 		C0598095267FAF8800B55C7C /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		C0598099267FB2D500B55C7C /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		C059809B2680F56B00B55C7C /* WeatherDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsView.swift; sourceTree = "<group>"; };
-		C05980A4268103AD00B55C7C /* WeatherDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsData.swift; sourceTree = "<group>"; };
 		C05980A626825F6E00B55C7C /* WeatherParameterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherParameterView.swift; sourceTree = "<group>"; };
+		C0911D6626838C7300DF4B0C /* ForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastData.swift; sourceTree = "<group>"; };
+		C0911D682683941F00DF4B0C /* ForecastWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherModel.swift; sourceTree = "<group>"; };
+		C0B2CDFC268666930013B788 /* ForecastWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 		C059808E267F90DA00B55C7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0B2CDFB268666830013B788 /* Cells */,
 				C059808B267F8F7000B55C7C /* WeatherSummaryView.swift */,
 				C059809B2680F56B00B55C7C /* WeatherDetailsView.swift */,
 				C05980A626825F6E00B55C7C /* WeatherParameterView.swift */,
@@ -105,6 +110,7 @@
 			children = (
 				C0598092267F9E7500B55C7C /* Common */,
 				C0598090267F9CBF00B55C7C /* TodayWeatherModel.swift */,
+				C0911D682683941F00DF4B0C /* ForecastWeatherModel.swift */,
 				C0598097267FB27D00B55C7C /* Network */,
 			);
 			path = Models;
@@ -131,9 +137,17 @@
 			isa = PBXGroup;
 			children = (
 				C0598099267FB2D500B55C7C /* WeatherData.swift */,
-				C05980A4268103AD00B55C7C /* WeatherDetailsData.swift */,
+				C0911D6626838C7300DF4B0C /* ForecastData.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		C0B2CDFB268666830013B788 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2CDFC268666930013B788 /* ForecastWeatherCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +224,13 @@
 				C0598091267F9CBF00B55C7C /* TodayWeatherModel.swift in Sources */,
 				C0598094267F9EB300B55C7C /* LocationManager.swift in Sources */,
 				C059808A267F87D200B55C7C /* ForecastWeatherController.swift in Sources */,
+				C0911D692683941F00DF4B0C /* ForecastWeatherModel.swift in Sources */,
+				C0911D6726838C7300DF4B0C /* ForecastData.swift in Sources */,
+				C0B2CDFD268666930013B788 /* ForecastWeatherCell.swift in Sources */,
 				C0598088267F87BB00B55C7C /* TodayWeatherController.swift in Sources */,
 				C059809A267FB2D500B55C7C /* WeatherData.swift in Sources */,
 				C0598074267F7D8F00B55C7C /* AppDelegate.swift in Sources */,
 				C05980A726825F6E00B55C7C /* WeatherParameterView.swift in Sources */,
-				C05980A5268103AD00B55C7C /* WeatherDetailsData.swift in Sources */,
 				C059809C2680F56B00B55C7C /* WeatherDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,15 +371,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79SX29K9W9;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cx.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = cxr.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,15 +390,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79SX29K9W9;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cx.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = cxr.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
