@@ -48,4 +48,5 @@ struct WeatherData: Codable {
     let wind: Wind
     let clouds: Clouds
     let sys: Sys
+    
 }

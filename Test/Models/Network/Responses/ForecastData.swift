@@ -10,15 +10,9 @@ import Foundation
 struct ForecastData: Codable {
     
     struct List: Codable {
-        let main: Main
-        let weather: [Weather]
         let date: Date
-        
-        var day: String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM.dd.yyyy"
-            return formatter.string(from: date)
-        }
+        let weather: [Weather]
+        let main: Main
         
         enum CodingKeys: String, CodingKey {
             case date = "dt_txt"
@@ -36,5 +30,11 @@ struct ForecastData: Codable {
         let icon: String
     }
     
+    struct City: Codable {
+        let name: String
+    }
+    
     let list: [List]
+    let city: City
+    
 }

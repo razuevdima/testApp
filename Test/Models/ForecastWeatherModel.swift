@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ForecastWeatherModelDelegate: class {
+protocol ForecastWeatherModelDelegate: AnyObject {
     func forecastWeatherModelDidUpdateData(_ forecastWeatherModel: ForecastWeatherModel)
     func forecastWeatherModel(_ forecastWeatherModel: ForecastWeatherModel, didFailureUpdateData error: Error)
 }
@@ -19,6 +19,10 @@ class ForecastWeatherModel {
     private var forecastData: ForecastData?
     
     private var data = [[ForecastData.List]]()
+    
+    var cityName: String? {
+        return forecastData?.city.name
+    }
     
     func updateData() {
         LocationManager.shared.getCurrentCoordinate { coordinate in
@@ -56,5 +60,19 @@ class ForecastWeatherModel {
         return data[section].count
     }
     
+    func getList(for indexPath: IndexPath) -> ForecastData.List {
+        return data[indexPath.section][indexPath.row]
+    }
+    
+    func getTitle(for section: Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let date = data[section][0].date
+        if Calendar.current.isDate(date, inSameDayAs: Date()) {
+            return "TODAY"
+        } else {
+            return dateFormatter.string(from: date).uppercased()
+        }
+    }
+    
 }
-

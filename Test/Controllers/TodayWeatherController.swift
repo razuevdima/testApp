@@ -54,12 +54,17 @@ class TodayWeatherController: UIViewController {
             case .success(let weatherData):
                 self.weatherDetailsView.setup(weatherData: weatherData)
                 self.weatherSummaryView.setup(weatherData: weatherData)
-                print(weatherData)
             case .failure(let error):
-                print(error)
+                self.showErrorAlert(message: error.localizedDescription)
             }
         }
         
+    }
+    
+    private func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
     
     private func getSeparatorView() -> UIView {
