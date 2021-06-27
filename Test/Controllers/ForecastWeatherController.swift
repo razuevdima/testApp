@@ -75,7 +75,7 @@ extension ForecastWeatherController: UITableViewDataSource {
 extension ForecastWeatherController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 90
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -105,7 +105,7 @@ extension ForecastWeatherController: ForecastWeatherModelDelegate {
     
     func forecastWeatherModelDidUpdateData(_ forecastWeatherModel: ForecastWeatherModel) {
         tableView.reloadData()
-        title = model.cityName
+        navigationItem.title = model.cityName
     }
     
     func forecastWeatherModel(_ forecastWeatherModel: ForecastWeatherModel, didFailureUpdateData error: Error) {

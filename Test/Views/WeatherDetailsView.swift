@@ -53,8 +53,8 @@ class WeatherDetailsView: UIView {
     }
     
     func setup(weatherData: WeatherData) {
-        minTempWeatherParameterView.setup(image: UIImage(named: "minTemp")!, description: "\(weatherData.main.minTemp) °C")
-        maxTempWeatherParameterView.setup(image: UIImage(named: "maxTemp")!, description: "\(weatherData.main.maxTemp) °C")
+        minTempWeatherParameterView.setup(image: UIImage(named: "minTemp")!, description: String(Int(round(weatherData.main.minTemp))) + "°C")
+        maxTempWeatherParameterView.setup(image: UIImage(named: "maxTemp")!, description: String(Int(round(weatherData.main.maxTemp))) + "°C")
         feelWeatherParameterView.setup(image: UIImage(named: "humidity")!, description: "\(weatherData.main.humidity) %")
         windSpeedWeatherParameterView.setup(image: UIImage(named: "windSpeed")!, description: "\(weatherData.wind.speed) km/h")
         cloudsWeatherParameterView.setup(image: UIImage(named: "clouds")!, description: "\(weatherData.clouds.all) %")
